@@ -1,0 +1,10 @@
+global java.lang.Integer MASTER_CARD_DISCOUNT_PRICE_THRESHOLD;
+global java.lang.Integer VISA_CARD_DISCOUNT_PRICE_THRESHOLD;
+global java.lang.Integer ICICI_CARD_DISCOUNT_PRICE_THRESHOLD;
+
+rule "LBG IF Contact Details business validation"
+when
+    eval( true )
+then
+    System.out.println( "LBG IF Execute contact details business validation..." );
+end
