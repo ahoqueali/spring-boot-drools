@@ -3,6 +3,7 @@
 // setting ICICI_CARD_DISCOUNT_PRICE_THRESHOLD = 3000
 
 // include default.drl
+// include contact_details.drl
 // include LBG_IF_contact_details.drl
 
 import org.ahoque.Order;
