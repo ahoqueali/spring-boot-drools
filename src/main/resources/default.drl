@@ -1,0 +1,13 @@
+
+global java.lang.Integer MASTER_CARD_DISCOUNT_PRICE_THRESHOLD;
+global java.lang.Integer VISA_CARD_DISCOUNT_PRICE_THRESHOLD;
+global java.lang.Integer ICICI_CARD_DISCOUNT_PRICE_THRESHOLD;
+
+rule "Using a global"
+when
+    eval( true )
+then
+    System.out.println( "Master card discount threshold price set to " + MASTER_CARD_DISCOUNT_PRICE_THRESHOLD );
+    System.out.println( "Visa card discount threshold price set to " + VISA_CARD_DISCOUNT_PRICE_THRESHOLD );
+    System.out.println( "ICICI card discount threshold price set to " + ICICI_CARD_DISCOUNT_PRICE_THRESHOLD );
+end

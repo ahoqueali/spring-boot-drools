@@ -1,0 +1,43 @@
+// setting MASTER_CARD_DISCOUNT_PRICE_THRESHOLD = 10000
+// setting VISA_CARD_DISCOUNT_PRICE_THRESHOLD = 5000
+// setting ICICI_CARD_DISCOUNT_PRICE_THRESHOLD = 3000
+
+// include default.drl
+// include contact_details.drl
+
+import org.ahoque.Order;
+import org.ahoque.OutputDisplay;
+
+global OutputDisplay showResults;
+global OutputDisplay sh;
+global java.lang.Integer MASTER_CARD_DISCOUNT_PRICE_THRESHOLD;
+global java.lang.Integer VISA_CARD_DISCOUNT_PRICE_THRESHOLD;
+global java.lang.Integer ICICI_CARD_DISCOUNT_PRICE_THRESHOLD;
+
+rule "MASTERCARD"
+    when
+        orderObject : Order(cardType == "MASTERCARD" && price > 10000);
+    then
+        orderObject.setDiscount(10);
+        showResults.showText("showResults MASTERCARD has been added a discount");
+        sh.showText("sh MASTERCARD has been added a discount ");
+
+end;
+
+rule "VISA"
+    when
+        orderObject : Order(cardType == "VISA" && price > 5000);
+    then
+        orderObject.setDiscount(14);
+        showResults.showText("showResults VISA has been added a discount");
+        sh.showText("sh VISA has been added a discount");
+end;
+
+rule "ICICI"
+    when
+        orderObject : Order(cardType == "ICICI" && price > 3000);
+    then
+        sh.showText("sh ICICI has been added a discount");
+        orderObject.setDiscount(20);
+        showResults.showText("showResults ICICI has been added a discount");
+end;
