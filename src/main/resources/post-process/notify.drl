@@ -1,0 +1,6 @@
+rule "notify" salience 1000
+when
+    eval( true )
+then
+    System.out.println( "Executing notify.drl file" );
+end

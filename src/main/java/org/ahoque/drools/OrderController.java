@@ -1,4 +1,4 @@
-package org.ahoque;
+package org.ahoque.drools;
 
 import org.kie.api.runtime.KieSession;
 import org.springframework.web.bind.annotation.PostMapping;

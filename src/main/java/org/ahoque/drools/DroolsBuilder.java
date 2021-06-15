@@ -1,4 +1,4 @@
-package org.ahoque;
+package org.ahoque.drools;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -82,7 +82,7 @@ public class DroolsBuilder {
     private KieFileSystem getKieFileSystem() throws IOException {
 
         KieFileSystem kieFileSystem = kieServices.newKieFileSystem();
-        Resource resource = ResourceFactory.newClassPathResource("order.drl");
+        Resource resource = ResourceFactory.newClassPathResource("pre-process/order.drl");
         List<String> applyDroolsList = readFromInputStream(resource.getInputStream());
         for(String fileName: applyDroolsList){
             kieFileSystem.write(ResourceFactory.newClassPathResource(fileName));

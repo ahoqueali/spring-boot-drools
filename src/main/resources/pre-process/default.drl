@@ -1,0 +1,6 @@
+rule "default" salience 10000
+when
+    eval( true )
+then
+    System.out.println( "Executing default.drl file" );
+end

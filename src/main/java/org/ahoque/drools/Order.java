@@ -1,4 +1,4 @@
-package org.ahoque;
+package org.ahoque.drools;
 
 import lombok.Data;
 

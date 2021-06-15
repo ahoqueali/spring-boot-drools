@@ -2,12 +2,10 @@
 // setting VISA_CARD_DISCOUNT_PRICE_THRESHOLD = 5000
 // setting ICICI_CARD_DISCOUNT_PRICE_THRESHOLD = 3000
 
-// include default.drl
-// include contact_details.drl
-// include LBG_IF_contact_details.drl
+// include pre-process/default.drl
 
-import org.ahoque.Order;
-import org.ahoque.OutputDisplay;
+import org.ahoque.drools.Order;
+import org.ahoque.drools.OutputDisplay;
 
 global OutputDisplay showResults;
 global OutputDisplay sh;
@@ -15,29 +13,32 @@ global java.lang.Integer MASTER_CARD_DISCOUNT_PRICE_THRESHOLD;
 global java.lang.Integer VISA_CARD_DISCOUNT_PRICE_THRESHOLD;
 global java.lang.Integer ICICI_CARD_DISCOUNT_PRICE_THRESHOLD;
 
-rule "MASTERCARD"
+rule "MASTERCARD" salience 10000
     when
-        orderObject : Order(cardType == "MASTERCARD" && price > 10000);
+        orderObject : Order(cardType == "MASTERCARD" && price > MASTER_CARD_DISCOUNT_PRICE_THRESHOLD);
     then
+        System.out.println( "Executing order.drl file" );
         orderObject.setDiscount(10);
         showResults.showText("showResults MASTERCARD has been added a discount");
         sh.showText("sh MASTERCARD has been added a discount ");
 
 end;
 
-rule "VISA"
+rule "VISA" salience 10000
     when
-        orderObject : Order(cardType == "VISA" && price > 5000);
+        orderObject : Order(cardType == "VISA" && price > VISA_CARD_DISCOUNT_PRICE_THRESHOLD);
     then
+        System.out.println( "Executing order.drl file" );
         orderObject.setDiscount(14);
         showResults.showText("showResults VISA has been added a discount");
         sh.showText("sh VISA has been added a discount");
 end;
 
-rule "ICICI"
+rule "ICICI" salience 10000
     when
-        orderObject : Order(cardType == "ICICI" && price > 3000);
+        orderObject : Order(cardType == "ICICI" && price > ICICI_CARD_DISCOUNT_PRICE_THRESHOLD);
     then
+        System.out.println( "Executing order.drl file" );
         sh.showText("sh ICICI has been added a discount");
         orderObject.setDiscount(20);
         showResults.showText("showResults ICICI has been added a discount");

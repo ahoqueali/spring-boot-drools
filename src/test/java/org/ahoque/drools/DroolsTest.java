@@ -1,4 +1,4 @@
-package org.ahoque;
+package org.ahoque.drools;
 
 import org.junit.jupiter.api.Test;
 import org.kie.api.runtime.KieSession;

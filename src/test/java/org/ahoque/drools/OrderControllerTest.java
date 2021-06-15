@@ -1,4 +1,4 @@
-package org.ahoque;
+package org.ahoque.drools;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;

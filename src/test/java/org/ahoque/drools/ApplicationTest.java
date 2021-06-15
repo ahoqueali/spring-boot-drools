@@ -1,4 +1,4 @@
-package org.ahoque;
+package org.ahoque.drools;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
